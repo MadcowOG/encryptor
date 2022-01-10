@@ -1,0 +1,18 @@
+pkgname='encryptor'
+pkgver=1.0.0
+pkgrel=1
+pkgdesc='For easy text encryption and decryption.'
+arch=('x86_64')
+url="https://github.com/MadcowOG/encryptor"
+license=('GPL')
+depends=('python>=3.10.1' 'python-pycryptodome>=3.12.0')
+
+source=("https://github.com/MadcowOG/$pkgname/releases/download/v$pkgver/$pkgname-v$pkgver.tar.xz")
+sha256sums=("50f65869b03a5cd8857276e4aec5831a6dcc1d69249511827bcb23087b619c9d")
+
+package()
+{
+    mkdir -p "${pkgdir}/usr/bin"
+    cp "${srcdir}/encryptor.py" "${pkgdir}/usr/bin/encryptor"
+    chmod +x "${pkgdir}/usr/bin/encryptor"
+}
